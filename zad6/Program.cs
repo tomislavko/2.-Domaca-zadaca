@@ -15,7 +15,7 @@ namespace zad6
         {
             Thread.Sleep(1000);
             Console.WriteLine("{0} Finished . Executing Thread : {1}", taskName,
-            Thread.CurrentThread.ManagedThreadId);
+                Thread.CurrentThread.ManagedThreadId);
         }
 
         public static void Main(string[] args)
@@ -27,7 +27,7 @@ namespace zad6
                 iterations.Add(i);
             });
             Console.WriteLine("Bag length should be 100. Length is {0}",
-            iterations.Count);
+                iterations.Count);
             Console.Read();
         }
     }

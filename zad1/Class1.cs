@@ -25,39 +25,47 @@ namespace Interfaces
         /// </summary >
         /// <returns > TodoItem if found , null otherwise </returns >
         TodoItem Get(Guid todoId);
+
         /// <summary >
         /// Adds new TodoItem object in database .
         /// If object with the same id already exists ,
         /// method should throw DuplicateTodoItemException with the message " duplicate id: {id }".
         /// </summary >
         void Add(TodoItem todoItem);
+
         /// <summary >
         /// Tries to remove a TodoItem with given id from the database .
         /// </summary >
         /// <returns > True if success , false otherwise </returns >
         bool Remove(Guid todoId);
+
         /// <summary >
         /// Updates given TodoItem in database .
         /// If TodoItem does not exist , method will add one .
         /// </summary >
         void Update(TodoItem todoItem);
+
         /// <summary >
         /// Tries to mark a TodoItem as completed in database .
         /// </summary >
         /// <returns > True if success , false otherwise </returns >
         bool MarkAsCompleted(Guid todoId);
+
         /// <summary >
         /// Gets all TodoItem objects in database , sorted by date created ( descending )
         /// </summary >
         List<TodoItem> GetAll();
+
         /// <summary >
         /// Gets all incomplete TodoItem objects in database
         /// </summary >
         List<TodoItem> GetActive();
+
         /// <summary >
         /// Gets all completed TodoItem objects in database
         /// </summary >
         List<TodoItem> GetCompleted();
+
         /// <summary >
         /// Gets all TodoItem objects in database that apply to the filter
         /// </summary >
@@ -77,6 +85,7 @@ namespace Repositories
         /// it uses in memory storage for this excersise .
         /// </summary >
         private readonly List<TodoItem> _inMemoryTodoDatabase;
+
         public TodoRepository(List<TodoItem> initialDbState = null)
         {
             if (initialDbState != null)
@@ -113,20 +122,21 @@ namespace Repositories
             }
             else
             {
-                throw new DuplicateTodoItemException("Duplicate id: "+todoItem.Id);
+                throw new DuplicateTodoItemException("Duplicate id: " + todoItem.Id);
             }
         }
+
         public bool Remove(Guid todoId)
         {
             if (todoId.Equals(null))
             {
                 return false;
             }
-            if (!_inMemoryTodoDatabase.Exists(p => p.Id==todoId))
+            if (!_inMemoryTodoDatabase.Exists(p => p.Id == todoId))
             {
                 return false;
             }
-            _inMemoryTodoDatabase.Remove(_inMemoryTodoDatabase.First(p => p.Id==todoId));
+            _inMemoryTodoDatabase.Remove(_inMemoryTodoDatabase.First(p => p.Id == todoId));
             return true;
         }
 
@@ -158,7 +168,6 @@ namespace Repositories
         public List<TodoItem> GetActive()
         {
             return _inMemoryTodoDatabase.Where(p => !p.IsCompleted).ToList();
-            
         }
 
         public List<TodoItem> GetCompleted()
@@ -171,8 +180,10 @@ namespace Repositories
             return _inMemoryTodoDatabase.Where(filterFunction).ToList();
         }
     }
+
     // implement ITodoRepository
 }
+
 namespace Models
 {
     public class TodoItem
@@ -184,6 +195,7 @@ namespace Models
             IsCompleted = false;
             DateCreated = DateTime.Now; // Set creation date as current time
         }
+
         public void MarkAsCompleted()
         {
             if (!IsCompleted)
@@ -192,6 +204,7 @@ namespace Models
                 DateCompleted = DateTime.Now;
             }
         }
+
         public Guid Id { get; set; }
         public string Text { get; set; }
         public bool IsCompleted { get; set; }

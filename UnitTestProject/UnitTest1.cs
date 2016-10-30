@@ -17,6 +17,7 @@ namespace UnitTestProject
             ITodoRepository repository = new TodoRepository();
             repository.Add(null);
         }
+
         [TestMethod]
         public void AddingItemWillAddToDatabase()
         {
@@ -26,6 +27,7 @@ namespace UnitTestProject
             Assert.AreEqual(1, repository.GetAll().Count);
             Assert.IsTrue(repository.Get(todoItem.Id) != null);
         }
+
         [TestMethod]
         [ExpectedException(typeof(DuplicateTodoItemException))]
         public void AddingExistingItemWillThrowException()
