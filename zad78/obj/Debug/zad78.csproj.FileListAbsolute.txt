@@ -1,0 +1,5 @@
+D:\2.D.Z\2DZ\zad78\bin\Debug\zad78.exe.config
+D:\2.D.Z\2DZ\zad78\bin\Debug\zad78.exe
+D:\2.D.Z\2DZ\zad78\bin\Debug\zad78.pdb
+D:\2.D.Z\2DZ\zad78\obj\Debug\zad78.exe
+D:\2.D.Z\2DZ\zad78\obj\Debug\zad78.pdb

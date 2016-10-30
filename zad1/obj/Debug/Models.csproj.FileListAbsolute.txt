@@ -1,0 +1,4 @@
+D:\2.D.Z\2DZ\zad1\bin\Debug\zad1.dll
+D:\2.D.Z\2DZ\zad1\bin\Debug\zad1.pdb
+D:\2.D.Z\2DZ\zad1\obj\Debug\zad1.dll
+D:\2.D.Z\2DZ\zad1\obj\Debug\zad1.pdb
